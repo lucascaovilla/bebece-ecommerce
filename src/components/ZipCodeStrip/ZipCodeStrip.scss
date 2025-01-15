@@ -1,0 +1,25 @@
+.zip-code-strip {
+  background-color: #B11B26;
+
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+
+  p {
+    color: #fff;
+    strong {
+      text-decoration: underline;
+    }
+  }
+  button {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  @media screen and (min-width: 375px) {
+    gap: 1.5rem;
+  }
+  @media screen and (min-width: 768px) {
+    gap: 2rem;
+  }
+}

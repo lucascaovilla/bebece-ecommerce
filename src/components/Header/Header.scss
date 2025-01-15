@@ -1,17 +1,18 @@
 .header {
-  display: flex;
-  padding: 1rem;
-  align-items: center;
-  justify-content: space-between;
-  .logo {
-    width: 35%;
-  }
-  nav {
+  &__content {
     display: flex;
-    gap: 1rem;
-    .icon {
-      color: #fff;
-      font-size: 20px;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+      width: 35%;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+      .icon {
+        color: #fff;
+      }
     }
   }
 
@@ -31,35 +32,20 @@
       }
     }
   }
-}
 
-@media screen and (min-width: 375px) {
-  .header {
-    nav {
-      .icon {
-        font-size: 24px;
+  @media screen and (min-width: 425px) {
+    &__content {
+      padding: 1.5rem;
+      nav {
+        gap: 1.5rem;
       }
     }
   }
-}
-@media screen and (min-width: 425px) {
-  .header {
-    padding: 1.5rem;
-    nav {
-      gap: 1.5rem;
-      .icon {
-        font-size: 26px;
-      }
-    }
-  }
-}
-@media screen and (min-width: 768px) {
-  .header {
-    padding: 2rem;
-    nav {
-      gap: 2rem;
-      .icon {
-        font-size: 32px;
+  @media screen and (min-width: 768px) {
+    &__content {
+      padding: 2rem;
+      nav {
+        gap: 2rem;
       }
     }
   }

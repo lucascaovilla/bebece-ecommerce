@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+h1, h2, h3, h4, h5, h6, p, button {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 135%;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2 {
+  font-size: 22px;
+  font-weight: 500;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+h6 {
+  font-size: 11px;
+  font-weight: 300;
+}
+
+p {
+  font-size: 12px;
+  font-weight: 400;
+  
+  strong {
+    font-weight: 400;
+  }
+
+  @media screen and (min-width: 375px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;   
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+button {
+  font-size: 12px;
+  font-weight: 400;
+  
+  background: none;
+  border: none;
+  cursor: pointer;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  @media screen and (min-width: 375px) {
+    font-size: 14px;
   }
-  to {
-    transform: rotate(360deg);
+  @media screen and (min-width: 768px) {
+    font-size: 16px;   
+  }
+}
+
+.icon {
+  font-size: 20px !important;
+  @media screen and (min-width: 375px) {
+    font-size: 24px !important;
+  }
+  @media screen and (min-width: 425px) {
+    font-size: 26px !important;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 32px !important;   
   }
 }

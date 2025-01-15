@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ZipCodeStrip from '../ZipCodeStrip/ZipCodeStrip'
 import { Menu, Search, Person, ShoppingBag } from '@mui/icons-material';
 import './Header.scss';
 
@@ -30,19 +31,22 @@ const Header = () => {
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-      <nav>
-        <Menu className="icon" />
-        <Search className="icon" />
-      </nav>
-      <img
-        className="logo"
-        src={`${process.env.PUBLIC_URL}/static/images/Logo.svg`}
-        alt="Logo"
-      />
-      <nav>
-        <Person className="icon" />
-        <ShoppingBag className="icon" />
-      </nav>
+      <ZipCodeStrip />
+      <section className='header__content'>
+        <nav>
+          <Menu className="icon" />
+          <Search className="icon" />
+        </nav>
+        <img
+          className="logo"
+          src={`${process.env.PUBLIC_URL}/static/images/Logo.svg`}
+          alt="Logo"
+        />
+        <nav>
+          <Person className="icon" />
+          <ShoppingBag className="icon" />
+        </nav>
+      </section>
     </header>
   );
 };
