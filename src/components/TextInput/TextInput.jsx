@@ -1,4 +1,5 @@
 import React, { forwardRef, useState } from 'react';
+import './TextInput.scss';
 
 const TextInput = forwardRef(({
   label,
@@ -23,16 +24,18 @@ const TextInput = forwardRef(({
   return (
     <div className="text-input">
       {label && <label htmlFor={name}>{label}</label>}
-      <input
-        id={name}
-        ref={ref}
-        name={name}
-        value={inputValue}
-        placeholder={placeholder}
-        onInput={handleInput}
-        required={required}
-        pattern={regex?.source}
-      />
+      <div className="input">
+        <input
+          id={name}
+          ref={ref}
+          name={name}
+          value={inputValue}
+          placeholder={placeholder}
+          onInput={handleInput}
+          required={required}
+          pattern={regex?.source}
+        />
+      </div>
     </div>
   );
 });

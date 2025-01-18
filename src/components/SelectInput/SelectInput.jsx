@@ -1,4 +1,5 @@
 import React, { forwardRef, useState } from 'react';
+import './SelectInput.scss';
 
 const SelectInput = forwardRef(({
   label,
@@ -19,23 +20,25 @@ const SelectInput = forwardRef(({
   return (
     <div className="select-input">
       {label && <label htmlFor={name}>{label}</label>}
-      <select
-        id={name}
-        ref={ref}
-        name={name}
-        value={selectedValue}
-        onChange={handleSelectChange}
-        required={required}
-      >
-        <option value="" disabled>
-          Select an option
-        </option>
-        {options.map((option, index) => (
-          <option key={index} value={option.value}>
-            {option.label}
+      <div className="select">
+        <select
+          id={name}
+          ref={ref}
+          name={name}
+          value={selectedValue}
+          onChange={handleSelectChange}
+          required={required}
+        >
+          <option value="" disabled>
+            Select an option
           </option>
-        ))}
-      </select>
+          {options.map((option, index) => (
+            <option key={index} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 });
