@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6, p, button {
+h1, h2, h3, h4, h5, h6, p, button, input, label {
   font-family: 'Open Sans', sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -56,6 +56,41 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+
+  @media screen and (min-width: 375px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;   
+  }
+}
+
+label {
+  font-size: 14px;
+  font-weight: 400;
+  
+  @media screen and (min-width: 375px) {
+    font-size: 16px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 18px;   
+  }
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+
+  border: 1px solid #eee;
+  border-radius: 0;
+  color: #8a8a8a;
+  &:focus {
+    border: 1px solid #ccc;
+    outline: none;
+  }
+
+  font-size: 12px;
+  font-weight: 400;
 
   @media screen and (min-width: 375px) {
     font-size: 14px;
