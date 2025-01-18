@@ -1,0 +1,81 @@
+.zip-code-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #00000020;
+  .modal {
+    padding: 24px;
+    background: #fff;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      width: 24px;
+      height: 24px;
+
+      .icon {
+        color: #8a8a8a;
+        font-size: 10px !important;
+      }
+    }
+
+    @media screen and (min-width: 375px) {
+      padding: 28px;
+      .close {
+        width: 28px;
+        height: 28px;
+        .icon {
+          font-size: 12px !important;
+        }
+      }
+    }
+    @media screen and (min-width: 425px) {
+      padding: 32px;
+      .close {
+        width: 32px;
+        height: 32px;
+        .icon {
+          font-size: 24px !important;
+        }
+      }
+    }
+    @media screen and (min-width: 768px) {
+      padding: 36px;
+      .close {
+        width: 36px;
+        height: 36px;
+        .icon {
+          font-size: 16px !important;   
+        }
+      }
+    }
+    section {
+      display: flex;
+      gap: 4px;
+      & > * {
+        flex: 1;
+      }
+    }
+  }
+}
