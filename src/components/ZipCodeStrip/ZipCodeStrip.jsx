@@ -1,13 +1,15 @@
 import React from 'react';
 import './ZipCodeStrip.scss';
 
-const zipCodeLocale = 'São Paulo'
+const zipCodeLocale = 'São Paulo';
 
-const ZipCodeStrip = () => {
+const ZipCodeStrip = ({ onChangeLocation }) => {
   return (
     <section className="zip-code-strip">
-      <p>Você está em <strong>{zipCodeLocale}</strong></p>
-      <button>Alterar</button>
+      <p>
+        Você está em <strong>{zipCodeLocale}</strong>
+      </p>
+      <button onClick={onChangeLocation}>Alterar</button>
     </section>
   );
 };
