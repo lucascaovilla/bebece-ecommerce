@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ZipCodeStrip from '../ZipCodeStrip/ZipCodeStrip';
-import ZipCodeModal from '../ZipCodeModal/ZipCodeModal';
 import { Menu, Search, Person, ShoppingBag } from '@mui/icons-material';
 import './Header.scss';
+import MenuComponent from '../MenuComponent/MenuComponent';
 
 const useScroll = () => {
   const [scrolled, setScrolled] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     let ticking = false;
 
     const handleScroll = () => {
@@ -27,25 +27,25 @@ const useScroll = () => {
   return scrolled;
 };
 
-const Header = () => {
-  const [isModalVisible, setModalVisible] = useState(false);
+const Header = ({ onChangeLocation }) => {
   const scrolled = useScroll();
+  const [isMenuVisible, setMenuVisible] = useState(false);
 
-  const onOpenModal = () => {
-    setModalVisible(true);
+  const onOpenMenu = () => {
+    setMenuVisible(true);
   };
 
-  const onCloseModal = () => {
-    setModalVisible(false);
+  const onCloseMenu = () => {
+    setMenuVisible(false);
   };
 
   return (
     <>
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-        <ZipCodeStrip onChangeLocation={onOpenModal} />
+        <ZipCodeStrip onChangeLocation={onChangeLocation} />
         <section className="header__content">
           <nav>
-            <Menu className="icon" />
+            <Menu className="icon" onClick={onOpenMenu} />
             <Search className="icon" />
           </nav>
           <img
@@ -59,7 +59,7 @@ const Header = () => {
           </nav>
         </section>
       </header>
-      {isModalVisible && <ZipCodeModal isVisible={isModalVisible} onClose={onCloseModal} />}
+      <MenuComponent isVisible={isMenuVisible} onClose={onCloseMenu} />
     </>
   );
 };
