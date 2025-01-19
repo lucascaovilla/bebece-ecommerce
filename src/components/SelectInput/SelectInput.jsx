@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import './SelectInput.scss';
 
 const SelectInput = forwardRef(({
@@ -12,9 +12,9 @@ const SelectInput = forwardRef(({
   const [selectedValue, setSelectedValue] = useState(value);
 
   const handleSelectChange = (e) => {
-    const { value: newValue } = e.target;
+    const newValue = e.target.value;
     setSelectedValue(newValue);
-    onChange(e);
+    onChange(newValue);
   };
 
   return (
@@ -29,9 +29,6 @@ const SelectInput = forwardRef(({
           onChange={handleSelectChange}
           required={required}
         >
-          <option value="" disabled>
-            Select an option
-          </option>
           {options.map((option, index) => (
             <option key={index} value={option.value}>
               {option.label}

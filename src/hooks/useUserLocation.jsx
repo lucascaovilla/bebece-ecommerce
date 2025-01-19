@@ -6,9 +6,9 @@ const LocationContext = createContext();
 
 export const LocationProvider = ({ children }) => {
   const [userLocation, setUserLocation] = useState({
-    zipCode: '',
-    city: '',
-    state: '',
+    zipCode: null,
+    city: null,
+    state: null,
   });
 
   useEffect(() => {

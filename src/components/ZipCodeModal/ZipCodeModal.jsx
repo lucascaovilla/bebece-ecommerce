@@ -4,10 +4,9 @@ import SelectInput from '../SelectInput/SelectInput';
 import FormComponent from '../FormComponent/FormComponent';
 import './ZipCodeModal.scss';
 import { Close } from '@mui/icons-material';
+import useUserLocation from '../../hooks/useUserLocation';
 
 const zipCodeRegex = /^[0-9]{0,5}(-[0-9]{0,3})?$/;
-
-const defaultSelect = { value: '', label: 'Opcional' };
 
 const states = [
   { value: '', label: 'Opcional' },
@@ -38,12 +37,18 @@ const states = [
   { value: 'df', label: 'Distrito Federal' },
 ];
 
-const handleSubmit = (data) => {
-  console.log('Form Submitted:', data);
-};
-
 const ZipCodeModal = ({ isVisible, onClose }) => {
+  const { userLocation, saveLocation } = useUserLocation();
+  const [zipCode, setZipCode] = useState(userLocation.zipCode || '');
+  const [city, setCity] = useState(userLocation.city || '');
+  const [state, setState] = useState(userLocation.state || '');
   const modalRef = useRef();
+
+  useEffect(() => {
+    setZipCode(userLocation.zipCode || '');
+    setCity(userLocation.city || '');
+    setState(userLocation.state || '');
+  }, [userLocation]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -52,7 +57,7 @@ const ZipCodeModal = ({ isVisible, onClose }) => {
       }
     };
 
-    if (isVisible) {
+    if (isVisible || !userLocation) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -61,7 +66,17 @@ const ZipCodeModal = ({ isVisible, onClose }) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isVisible, onClose]);
+  }, [isVisible, onClose, userLocation]);
+
+  const handleSubmit = async (data) => {
+    if (!zipCodeRegex.test(data.zipCode)) {
+      alert('Por favor, insira um código postal válido.');
+      return;
+    }
+
+    await saveLocation(data.zipCode);
+    onClose();
+  };
 
   if (!isVisible) return null;
 
@@ -76,18 +91,27 @@ const ZipCodeModal = ({ isVisible, onClose }) => {
           <TextInput
             label="Código postal*"
             name="zipCode"
+            value={zipCode}
+            onChange={(e) => setZipCode(e.target.value)}
             regex={zipCodeRegex}
             placeholder="00000-000"
             required
           />
           <section>
-            <TextInput label="Cidade" name="city" placeholder="Opcional" />
+            <TextInput
+              label="Cidade"
+              name="city"
+              value={city}
+              placeholder="Opcional"
+              readOnly
+            />
             <SelectInput
               label="Estado"
               name="state"
+              value={state}
+              onChange={(selected) => setState(selected.value)}
               options={states}
-              value={defaultSelect}
-              required
+              isDisabled
             />
           </section>
         </FormComponent>
