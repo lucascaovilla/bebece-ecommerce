@@ -24,7 +24,7 @@ const FormComponent = ({ onSubmit, children, buttonLabel }) => {
   return (
     <form ref={formRef} onInput={validateForm} onSubmit={handleSubmit}>
       {children}
-      <ButtonComponent label={buttonLabel} buttonType="submit" disabled={!isValid} onClick={handleSubmit}/>
+      <ButtonComponent buttonType="submit" disabled={!isValid} onClick={handleSubmit}>{buttonLabel}</ButtonComponent>
     </form>
   );
 };

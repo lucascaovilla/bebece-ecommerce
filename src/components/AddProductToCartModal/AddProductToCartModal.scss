@@ -1,0 +1,135 @@
+.add-product-to-cart-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  background: #00000020;
+
+  display: flex;
+  align-items: end;
+
+  .modal {
+    width: 100%;
+    background: #fff;
+
+    .image {
+      background: #F7F7F7;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 50%;
+      }
+
+      .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+
+    .content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .product-name {
+        color: #1D1D1D;
+        font-weight: 300;
+      }
+
+      .size {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        p {
+          font-size: 14px;
+          font-weight: 400;
+          
+          span {
+            color: #8A8A8A;
+          }
+          
+          @media screen and (min-width: 375px) {
+            font-size: 16px;
+          }
+          @media screen and (min-width: 768px) {
+            font-size: 18px;   
+          }
+        }
+        .sizes-list {
+          display: grid;
+          grid-template-columns: auto auto auto auto auto auto;
+          gap: 0.5rem;
+          
+          li {
+            cursor: pointer;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border: 1px solid #CECECE;
+
+            font-size: 12px;
+            font-weight: 400;
+
+            aspect-ratio: 1 / 1;
+
+            &.selected {
+              border-color: #000;
+            }
+
+            &.unavailable {
+              pointer-events: none;
+              position: relative;
+              border-color: #EEEEEE;
+              color:#8A8A8A;
+
+              &::before {
+                content: '';
+                position: absolute;
+                width: calc(100% * 1.414);
+                height: 1px;
+                background-color: #CECECE;
+                transform: rotate(-45deg);
+                top: 50%;
+                left: -21%;
+                transform-origin: center;
+              }
+              
+            }
+          }
+
+          @media screen and (min-width: 375px) {
+            grid-template-columns: auto auto auto auto auto auto auto;
+            li {
+              font-size: 14px;
+            }
+          }
+          
+          @media screen and (min-width: 768px) {
+            grid-template-columns: auto auto auto auto auto auto auto auto;
+            li {
+              padding: 1.5rem;
+              font-size: 16px;   
+            }
+          }
+        }
+      }
+      .button-label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+      }
+    }
+  }
+}
