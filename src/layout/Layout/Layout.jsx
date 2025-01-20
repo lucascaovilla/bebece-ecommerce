@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import ZipCodeModal from '../../components/ZipCodeModal/ZipCodeModal';
 import useUserLocation from '../../hooks/useUserLocation';
+import ProductsList from '../../components/ProductsList/ProductsList';
 
 const Layout = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -44,11 +45,8 @@ const Layout = () => {
       <main>
       <Outlet />
         1
-        <Outlet />
         2
-        <Outlet />
         3
-        <Outlet />
         4
         <Outlet />
         5
@@ -65,6 +63,7 @@ const Layout = () => {
         <Outlet />
         11
         <Outlet />
+        <ProductsList />
         12
         <Outlet />
         13
