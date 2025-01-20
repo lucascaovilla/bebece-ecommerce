@@ -1,0 +1,107 @@
+.menu-component {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  width: 85vw;
+  background-color: #00000020;
+  padding-right: 25vw;
+  overflow-x: auto;
+  
+  .menu {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+  
+      .logo {
+        filter: invert(1)
+      }
+    }
+  
+    &__banner {
+      position: relative;
+      img {
+        width: 100%;
+        height: auto;
+      }
+      nav {
+        position: absolute;
+        bottom: 2rem;
+        left: 2rem;
+        right: 2rem;
+  
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        h5 {
+          font-weight: 600;
+        }
+        a {
+          font-size: 12px;
+          font-weight: 300;
+          border-bottom: 1px solid #fff;
+  
+          @media screen and (min-width: 375px) {
+            font-size: 14px;
+          }
+          @media screen and (min-width: 768px) {
+            font-size: 16px;   
+          }
+        }
+      }
+    }
+  
+    &__content {
+      flex: 1;
+  
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+  
+      .categories-list {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        
+        .category {
+          h5 {
+            display: flex;
+            justify-content: space-between;
+          }
+  
+          .products-list {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+  
+            .product {
+              a {
+                color: #333;
+                font-size: 14px;
+                font-weight: 300;
+  
+                @media screen and (min-width: 375px) {
+                  font-size: 16px;
+                }
+                @media screen and (min-width: 768px) {
+                  font-size: 18px;   
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
