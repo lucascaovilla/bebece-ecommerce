@@ -124,11 +124,9 @@ const Layout = () => {
         <Outlet />
       </main>
       <Footer />
+      {isNewsletterModalVisible && (<NewsletterModal isVisible={isNewsletterModalVisible} onClose={onCloseNewsletterModal} />)}
       {isZipCodeModalVisible && <ZipCodeModal isVisible={isZipCodeModalVisible} onClose={onCloseZipCodeModal} />}
       {isCartModalVisible && <CartModal isVisible={isCartModalVisible} onClose={onCloseCart} />}
-      {isNewsletterModalVisible && (
-        <NewsletterModal isVisible={isNewsletterModalVisible} onClose={onCloseNewsletterModal} />
-      )}
     </div>
   );
 };
