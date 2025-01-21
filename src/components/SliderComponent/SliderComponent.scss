@@ -1,0 +1,35 @@
+.slider-component {
+    position: relative;
+
+    .slick-dots {
+        position: absolute;
+        right: 2rem;
+        bottom: 2rem;
+
+        width: auto;
+
+        li {
+            margin: 0;
+            width: 12px;
+            height: 12px;
+
+            button {
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                &:before {
+                    color: #8A8A8A;
+                    opacity: 1;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            &.slick-active {
+                button:before {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
