@@ -4,9 +4,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import ZipCodeModal from '../../components/ZipCodeModal/ZipCodeModal';
 import CartModal from '../../components/CartModal/CartModal';
-import NewsletterModal from '../../components/NewsletterModal/NewsletterModal';
 import useUserLocation from '../../hooks/useUserLocation';
-import ProductsList from '../../components/ProductsList/ProductsList';
 
 const Layout = () => {
   const [isZipCodeModalVisible, setZipCodeModalVisible] = useState(false);
@@ -55,57 +53,7 @@ const Layout = () => {
     <div>
       <Header onChangeLocation={() => setZipCodeModalVisible(true)} onOpenCart={onOpenCart} />
       <main>
-        <Outlet />
-        1
-        <Outlet />
-        2
-        <Outlet />
-        3
-        <Outlet />
-        4
-        <Outlet />
-        5
-        <Outlet />
-        6
-        <Outlet />
-        7
-        <Outlet />
-        8
-        <Outlet />
-        9
-        <Outlet />
-        10
-        <Outlet />
-        11
-        <Outlet />
-        <ProductsList onOpenCart={() => setCartModalVisible(true)} />
-        <NewsletterModal />
-        12
-        <Outlet />
-        13
-        <Outlet />
-        14
-        <Outlet />
-        15
-        <Outlet />
-        16
-        <Outlet />
-        17
-        <Outlet />
-        18
-        <Outlet />
-        19
-        <Outlet />
-        20
-        <Outlet />
-        21
-        <Outlet />
-        22
-        <Outlet />
-        23
-        <Outlet />
-        24
-        <Outlet />
+        <Outlet onOpenCart={() => setCartModalVisible(true)} />
       </main>
       <Footer />
       {isZipCodeModalVisible && <ZipCodeModal isVisible={isZipCodeModalVisible} onClose={onCloseZipCodeModal} />}
