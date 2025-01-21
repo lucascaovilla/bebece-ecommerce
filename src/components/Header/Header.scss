@@ -2,13 +2,18 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100vw;
   z-index: 10;
+
   &__content {
     display: flex;
-    padding: 1rem;
+        
     align-items: center;
     justify-content: space-between;
+    
+    width: calc(100% - 2rem);
+    padding: 1rem;
+    
     .logo {
       width: 35%;
     }
@@ -23,6 +28,22 @@
         gap: 2px;
       }
     }
+
+    @media screen and (min-width: 425px) {
+      width: calc(100% - 3rem);
+      padding: 1.5rem;
+      nav {
+        gap: 1.5rem;
+      }
+    }
+  
+    @media screen and (min-width: 768px) {
+      width: calc(100% - 4rem);
+      padding: 2rem;
+      nav {
+        gap: 2rem;
+      }
+    }
   }
 
   &.scrolled {
@@ -34,21 +55,6 @@
       color: #000;
     }
   }
-
-  @media screen and (min-width: 425px) {
-    &__content {
-      padding: 1.5rem;
-      nav {
-        gap: 1.5rem;
-      }
-    }
-  }
-  @media screen and (min-width: 768px) {
-    &__content {
-      padding: 2rem;
-      nav {
-        gap: 2rem;
-      }
-    }
-  }
 }
+
+
