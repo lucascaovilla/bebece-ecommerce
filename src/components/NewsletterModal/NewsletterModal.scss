@@ -1,74 +1,53 @@
 .newsletter-modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 10000;
+  background: #FFE9DC;
+  padding: 2rem;
+  width: calc(100% - 4rem);
 
-  background: #00000020;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  h3 {
+    text-align: center;
+  }
+  .newsletter-form, .submitted {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-  .newsletter {
-    background: #FFE9DC;
-    padding: 2rem;
+  .newsletter-form {
+    color: #B11B26;
+  }
 
-    max-width: 80%;
-    @media screen and (min-width: 375px) {
-      max-width: 65%;
-    }
-    @media screen and (min-width: 768px) {
-      max-width: 50%;
-    }
-
-    h3 {
-      text-align: center;
-    }
-    .newsletter-form, .submitted {
+  .submitted {
+    .coupon {
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
 
-    .newsletter-form {
-      color: #B11B26;
-    }
+      & > * {
+        padding: 1rem;
+        text-align: center;
+      }
 
-    .submitted {
-      .coupon {
-        display: flex;
+      span {
+        background: #fff;
+        color: #B11B26;
+        flex: 2;
+        border: 1px dashed #CECECE;
 
-        & > * {
-          padding: 1rem;
-          text-align: center;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+      }
+
+      button {
+        background: #B11B26;
+        flex: 1;
+
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+
+        font-size: 14px;
+        @media screen and (min-width: 375px) {
+          font-size: 16px;
         }
-
-        span {
-          background: #fff;
-          color: #B11B26;
-          flex: 2;
-          border: 1px dashed #CECECE;
-
-          border-top-left-radius: 40px;
-          border-bottom-left-radius: 40px;
-        }
-
-        button {
-          background: #B11B26;
-          flex: 1;
-
-          border-top-right-radius: 40px;
-          border-bottom-right-radius: 40px;
-
-          font-size: 14px;
-          @media screen and (min-width: 375px) {
-            font-size: 16px;
-          }
-          @media screen and (min-width: 768px) {
-            font-size: 18px;   
-          }
+        @media screen and (min-width: 768px) {
+          font-size: 18px;   
         }
       }
     }
