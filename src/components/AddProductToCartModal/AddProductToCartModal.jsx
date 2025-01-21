@@ -2,10 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import './AddProductToCartModal.scss';
 import { Close, ShoppingBagOutlined } from '@mui/icons-material';
 import ButtonComponent from '../ButtonComponent/ButtonComponent';
+import useCart from '../../hooks/useCart';
 
-const AddProductToCartModal = ({ isVisible, onClose, product }) => {
+const AddProductToCartModal = ({ isVisible, onClose, product, onOpenCart }) => {
   const modalRef = useRef();
   const [selectedSize, setSelectedSize] = useState(null);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     if (product?.sizes?.length) {
@@ -31,10 +33,9 @@ const AddProductToCartModal = ({ isVisible, onClose, product }) => {
     };
   }, [isVisible, onClose]);
 
-  const addProductToCart = () => {
-    if (selectedSize) {
-      console.log(`Adding product to cart with size: ${selectedSize}`);
-    }
+  const handleAddToCart = () => {
+    addToCart(product.id, selectedSize);
+    onOpenCart();
   };
 
   if (!isVisible) return null;
@@ -74,7 +75,7 @@ const AddProductToCartModal = ({ isVisible, onClose, product }) => {
               ))}
             </ul>
           </div>
-          <ButtonComponent onClick={addProductToCart}>
+          <ButtonComponent onClick={handleAddToCart}>
             <div className="button-label">
               Adicionar ao carrinho
               <ShoppingBagOutlined />

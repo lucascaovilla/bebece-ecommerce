@@ -3,6 +3,7 @@ import ZipCodeStrip from '../ZipCodeStrip/ZipCodeStrip';
 import { Menu, Search, Person, ShoppingBag } from '@mui/icons-material';
 import './Header.scss';
 import MenuComponent from '../MenuComponent/MenuComponent';
+import useCart from '../../hooks/useCart';
 
 const useScroll = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -27,9 +28,10 @@ const useScroll = () => {
   return scrolled;
 };
 
-const Header = ({ onChangeLocation }) => {
+const Header = ({ onChangeLocation, onOpenCart }) => {
   const scrolled = useScroll();
   const [isMenuVisible, setMenuVisible] = useState(false);
+  const { cartLength } = useCart();
 
   const onOpenMenu = () => {
     setMenuVisible(true);
@@ -55,7 +57,10 @@ const Header = ({ onChangeLocation }) => {
           />
           <nav>
             <Person className="icon" />
-            <ShoppingBag className="icon" />
+            <p>
+              <ShoppingBag className="icon" onClick={onOpenCart} />
+              {cartLength > 0 && <span>{cartLength}</span>}
+            </p>
           </nav>
         </section>
       </header>

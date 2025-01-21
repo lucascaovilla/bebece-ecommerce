@@ -5,9 +5,11 @@ import Footer from '../../components/Footer/Footer';
 import ZipCodeModal from '../../components/ZipCodeModal/ZipCodeModal';
 import useUserLocation from '../../hooks/useUserLocation';
 import ProductsList from '../../components/ProductsList/ProductsList';
+import CartModal from '../../components/CartModal/CartModal';
 
 const Layout = () => {
   const [isModalVisible, setModalVisible] = useState(false);
+  const [isCartVisible, setCartVisible] = useState(false);
   const { userLocation } = useUserLocation();
 
   const checkUserLocation = useCallback(() => {
@@ -38,10 +40,18 @@ const Layout = () => {
   const onCloseModal = () => {
     setModalVisible(false);
   };
+  
+  const onOpenCart = () => {
+    setCartVisible(true);
+  };
+
+  const onCloseCart = () => {
+    setCartVisible(false);
+  };
 
   return (
     <div>
-      <Header onChangeLocation={() => setModalVisible(true)} />
+      <Header onChangeLocation={() => setModalVisible(true)} onOpenCart={() => setCartVisible(true)} />
       <main>
       <Outlet />
         1
@@ -63,7 +73,7 @@ const Layout = () => {
         <Outlet />
         11
         <Outlet />
-        <ProductsList />
+        <ProductsList onOpenCart={() => setCartVisible(true)} />
         12
         <Outlet />
         13
@@ -93,6 +103,7 @@ const Layout = () => {
       </main>
       <Footer />
       {isModalVisible && <ZipCodeModal isVisible={isModalVisible} onClose={onCloseModal} />}
+      {isCartVisible && <CartModal isVisible={isCartVisible} onClose={onCloseCart} />}
     </div>
   );
 };
