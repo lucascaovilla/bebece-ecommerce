@@ -4,7 +4,7 @@ import ProductCard from '../ProductCard/ProductCard';
 import { getProducts } from '../../utils';
 import './ProductsList.scss';
 
-const ProductsList = () => {
+const ProductsList = ({ onOpenCart }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const ProductsList = () => {
   return (
     <div className="products-list">
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product.id} product={product} onOpenCart={onOpenCart} />
       ))}
     </div>
   );

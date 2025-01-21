@@ -3,18 +3,25 @@ import { Outlet } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import ZipCodeModal from '../../components/ZipCodeModal/ZipCodeModal';
+import CartModal from '../../components/CartModal/CartModal';
+import NewsletterModal from '../../components/NewsletterModal/NewsletterModal';
 import useUserLocation from '../../hooks/useUserLocation';
+import useEmail from '../../hooks/useEmail';
 import ProductsList from '../../components/ProductsList/ProductsList';
 
 const Layout = () => {
-  const [isModalVisible, setModalVisible] = useState(false);
+  const [isZipCodeModalVisible, setZipCodeModalVisible] = useState(false);
+  const [isCartModalVisible, setCartModalVisible] = useState(false);
+  const [isNewsletterModalVisible, setNewsletterModalVisible] = useState(false);
+
   const { userLocation } = useUserLocation();
+  const { getEmail } = useEmail();
 
   const checkUserLocation = useCallback(() => {
     if (!userLocation) {
       setTimeout(checkUserLocation, 10);
     } else {
-      setModalVisible(!userLocation?.zipCode);
+      setZipCodeModalVisible(!userLocation?.zipCode);
     }
   }, [userLocation]);
 
@@ -25,7 +32,17 @@ const Layout = () => {
   }, [userLocation, checkUserLocation]);
 
   useEffect(() => {
-    if (isModalVisible) {
+    const email = getEmail();
+    console.log(email)
+    if (!email) {
+      setNewsletterModalVisible(true);
+    } else {
+      setNewsletterModalVisible(false);
+    }
+  }, [getEmail]);
+
+  useEffect(() => {
+    if (isZipCodeModalVisible || isNewsletterModalVisible) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -33,20 +50,35 @@ const Layout = () => {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [isModalVisible]);
+  }, [isZipCodeModalVisible, isNewsletterModalVisible]);
 
-  const onCloseModal = () => {
-    setModalVisible(false);
+  const onCloseZipCodeModal = () => {
+    setZipCodeModalVisible(false);
+  };
+
+  const onOpenCart = () => {
+    setCartModalVisible(true);
+  };
+
+  const onCloseCart = () => {
+    setCartModalVisible(false);
+  };
+
+  const onCloseNewsletterModal = () => {
+    setNewsletterModalVisible(false);
   };
 
   return (
     <div>
-      <Header onChangeLocation={() => setModalVisible(true)} />
+      <Header onChangeLocation={() => setZipCodeModalVisible(true)} onOpenCart={onOpenCart} />
       <main>
-      <Outlet />
+        <Outlet />
         1
+        <Outlet />
         2
+        <Outlet />
         3
+        <Outlet />
         4
         <Outlet />
         5
@@ -63,7 +95,7 @@ const Layout = () => {
         <Outlet />
         11
         <Outlet />
-        <ProductsList />
+        <ProductsList onOpenCart={() => setCartModalVisible(true)} />
         12
         <Outlet />
         13
@@ -92,7 +124,11 @@ const Layout = () => {
         <Outlet />
       </main>
       <Footer />
-      {isModalVisible && <ZipCodeModal isVisible={isModalVisible} onClose={onCloseModal} />}
+      {isZipCodeModalVisible && <ZipCodeModal isVisible={isZipCodeModalVisible} onClose={onCloseZipCodeModal} />}
+      {isCartModalVisible && <CartModal isVisible={isCartModalVisible} onClose={onCloseCart} />}
+      {isNewsletterModalVisible && (
+        <NewsletterModal isVisible={isNewsletterModalVisible} onClose={onCloseNewsletterModal} />
+      )}
     </div>
   );
 };

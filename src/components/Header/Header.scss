@@ -15,8 +15,12 @@
     nav {
       display: flex;
       gap: 1rem;
-      .icon {
-        color: #fff;
+      color: #fff;
+
+      p {
+        display: flex;
+        align-items: start;
+        gap: 2px;
       }
     }
   }
@@ -27,9 +31,7 @@
       filter: invert(1);
     }
     nav {
-      .icon {
-        color: #000;
-      }
+      color: #000;
     }
   }
 

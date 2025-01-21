@@ -3,7 +3,7 @@ import './ProductCard.scss';
 import { FavoriteBorderOutlined, ShoppingBagOutlined } from '@mui/icons-material';
 import AddProductToCartModal from '../AddProductToCartModal/AddProductToCartModal';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onOpenCart }) => {
   const { name, image, price, id, sizes } = product;
   const [isModalVisible, setModalVisible] = useState(false);
 
@@ -52,7 +52,7 @@ const ProductCard = ({ product }) => {
             </p>
           )}
       </div>
-      <AddProductToCartModal isVisible={isModalVisible} onClose={onCloseModal} product={product} />
+      <AddProductToCartModal isVisible={isModalVisible} onClose={onCloseModal} onOpenCart={() => {onOpenCart(); onCloseModal()}} product={product} />
     </div>
   );
 };
