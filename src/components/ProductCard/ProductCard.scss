@@ -1,8 +1,11 @@
 .product-card {
-  
+  margin:  0 1rem;
   .image {
     background: #F7F7F7;
     position: relative;
+    img {
+      width: 100%;
+    }
     .favorites, .add-to-cart {
       cursor: pointer;
       background-color: #fff;

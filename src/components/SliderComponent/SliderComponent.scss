@@ -57,12 +57,24 @@
         }
     }
 
+    &.top-dots {
+        .slick-dots {
+            bottom: unset;
+            top: -3rem;
+
+        }
+    }
+
     @media screen and (min-width: 768px) {
         .slick-dots {
             width: calc(100% - 4rem);
             bottom: 1rem;
             display: flex;
-            justify-content: center;    
+            justify-content: center; 
+            
+            &.top-dots {
+                width: auto;
+            }
         }
     }
 }

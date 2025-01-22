@@ -1,19 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ProductCard.scss';
 import { FavoriteBorderOutlined, ShoppingBagOutlined } from '@mui/icons-material';
-import AddProductToCartModal from '../AddProductToCartModal/AddProductToCartModal';
 
-const ProductCard = ({ product, onOpenCart }) => {
+const ProductCard = ({ product, onOpenModal }) => {
   const { name, image, price, id, sizes } = product;
-  const [isModalVisible, setModalVisible] = useState(false);
-
-  const onOpenModal = () => {
-    setModalVisible(true);
-  };
-
-  const onCloseModal = () => {
-    setModalVisible(false);
-  };
 
   return (
     <div className="product-card">
@@ -25,7 +15,7 @@ const ProductCard = ({ product, onOpenCart }) => {
         <div className="favorites">
           <FavoriteBorderOutlined className='icon' />
         </div>
-        <div className="add-to-cart" onClick={onOpenModal}>
+        <div className="add-to-cart" onClick={() => onOpenModal(product)}>
           <ShoppingBagOutlined className='icon' />
         </div>
         {price.isDiscount && (
@@ -51,7 +41,6 @@ const ProductCard = ({ product, onOpenCart }) => {
             </p>
           )}
       </div>
-      <AddProductToCartModal isVisible={isModalVisible} onClose={onCloseModal} onOpenCart={() => {onOpenCart(); onCloseModal()}} product={product} />
     </div>
   );
 };
