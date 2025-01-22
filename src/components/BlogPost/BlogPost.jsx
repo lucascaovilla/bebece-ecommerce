@@ -9,6 +9,7 @@ const BlogPost = ({ image, title, caption }) => {
       </figure>
       <h2>{title}</h2>
       <p>{caption}</p>
+      <a>Saiba mais!</a>
     </div>
   );
 };
