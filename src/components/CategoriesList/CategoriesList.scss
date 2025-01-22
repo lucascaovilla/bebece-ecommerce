@@ -1,0 +1,14 @@
+.categories-list {
+  padding-top: 2rem;
+
+  .title {
+    padding: 0 2rem;
+  }
+  
+  .list {
+    display: flex;
+    gap: 1rem;
+    padding: 2rem;
+    overflow-y: auto;
+  }
+}
