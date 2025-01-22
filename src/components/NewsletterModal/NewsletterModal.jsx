@@ -8,10 +8,11 @@ const NewsletterModal = () => {
   const [emailInput, setEmailInput] = useState('');
   const [emailSet, setEmailState] = useState(false);
   const { getEmail, setNewsletterEmail } = useEmail();
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
   useEffect(() => {
     const email = getEmail();
-    if (!email) {
+    if (email) {
       setEmailState(true);
     }
   }, [getEmail]);
@@ -35,7 +36,7 @@ const NewsletterModal = () => {
       {!emailSet ? (
         <div className="newsletter-form">
           <h3>Cadastre-se e receba <strong>10% OFF</strong> na sua primeira compra!</h3>
-          <FormComponent onSubmit={handleSubmit} buttonLabel="Enviar">
+          <FormComponent onSubmit={handleSubmit} buttonLabel="Enviar" flex={!isMobile}>
             <TextInput
               name="email"
               type="email"

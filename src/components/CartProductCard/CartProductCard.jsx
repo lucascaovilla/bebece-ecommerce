@@ -29,9 +29,9 @@ const CartProductCard = ({ product, onChangeQuantity, onRemove }) => {
   return (
     <div className="cart-product-card">
       <div className="cart-product-card__content">
-        <figure className="image">
+        <picture className="image">
           <img src={product.product.image} alt={product.product.name} />
-        </figure>
+        </picture>
         <div className="info">
           <h5>{truncateText(product.product.name)}</h5>
 

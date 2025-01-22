@@ -4,9 +4,9 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <footer className="footer">
-      <figure className="logo">
+      <picture className="logo">
         <img src="/static/images/Logo.svg" alt="Logo Bebecê" />
-      </figure>
+      </picture>
       <ul className="social-medias">
         <li className="social-media">
           <a>

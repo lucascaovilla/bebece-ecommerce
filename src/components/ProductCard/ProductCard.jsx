@@ -15,10 +15,9 @@ const ProductCard = ({ product, onOpenCart }) => {
     setModalVisible(false);
   };
 
-
   return (
     <div className="product-card">
-      <figure className='image'>
+      <picture className='image'>
         <img
           src={image}
           alt={name}
@@ -32,7 +31,7 @@ const ProductCard = ({ product, onOpenCart }) => {
         {price.isDiscount && (
           <span>{100 - Math.round((price.isDiscount / price.amount) * 100)}% OFF</span>
         )}
-      </figure>
+      </picture>
       <div className="product-info">
         <p className="product-name">{name}</p>
           {price.isDiscount ? (

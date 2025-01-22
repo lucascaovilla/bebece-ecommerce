@@ -38,11 +38,41 @@
     }
   
     @media screen and (min-width: 768px) {
-      width: calc(100% - 4rem);
-      padding: 2rem;
+      width: calc(100% - 8rem);
+      padding: 0 4rem;
+      gap: 2rem;
+
+      .logo {
+        width: 15%;
+        padding: 2rem 0;
+      }
       nav {
         gap: 2rem;
+        padding: 2rem 0;
       }
+      .menu-sections {
+        flex: 1;
+        padding: 0;
+
+        p {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+
+          padding: 2rem 0;
+
+          .red {
+            color: #B11B26;
+          }
+
+          &.active {
+            border-bottom: 1px solid #000;
+          }
+        }
+
+      }
+
+
     }
   }
 

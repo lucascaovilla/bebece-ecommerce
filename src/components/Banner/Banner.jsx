@@ -13,15 +13,16 @@ const Banner = ({ mobileImage, desktopImage, alt }) => {
   }
 
   return (
-    <div className="banner">
-      <picture>
-        {desktopImage && <source srcSet={desktopImage} media="(min-width: 769px)" />}
-        <img
-          src={mobileImage}
-          alt={alt || 'Banner'}
-        />
-      </picture>
-    </div>
+    <picture className="banner">
+      {desktopImage && <source srcSet={desktopImage} media="(min-width: 769px)" />}
+      <img
+        src={mobileImage}
+        alt={alt || 'Banner'}
+      />
+      <div className="discover">
+        <p>Conheça agora!</p>
+      </div>
+    </picture>
   );
 };
 

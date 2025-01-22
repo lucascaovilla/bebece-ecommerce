@@ -1,12 +1,13 @@
 import React from 'react';
 import './CategoryCard.scss';
 
-const CategoryCard = ({ image }) => {
+const CategoryCard = ({ image, title }) => {
   return (
     <section className="category-card">
-      <figure className="image">
+      <picture className="image">
         <img src={image} alt="Categoria" />
-      </figure>
+      </picture>
+      <h5>{title}</h5>
     </section>
   );
 };

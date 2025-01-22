@@ -43,12 +43,12 @@ const AddProductToCartModal = ({ isVisible, onClose, product, onOpenCart }) => {
   return (
     <div className="add-product-to-cart-modal">
       <div className="modal" ref={modalRef}>
-        <figure className="image">
+        <picture className="image">
           {product?.image && <img src={product.image} alt={product?.name} />}
           <div className="close" onClick={onClose}>
             <Close className="icon" />
           </div>
-        </figure>
+        </picture>
         <div className="content">
           <h4 className="product-name">{product?.name || "Produto sem nome"}</h4>
           <div className="size">

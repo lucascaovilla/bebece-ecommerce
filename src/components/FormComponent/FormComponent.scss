@@ -2,4 +2,9 @@ form {
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  &.flex {
+    flex-direction: row;
+    gap: 1rem;
+  }
 }

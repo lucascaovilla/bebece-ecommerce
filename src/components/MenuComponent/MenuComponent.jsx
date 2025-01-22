@@ -44,7 +44,7 @@ const MenuComponent = ({ isVisible, onClose }) => {
             <Close className="icon" />
           </div>
         </div>
-        <figure className='menu__banner'>
+        <picture className='menu__banner'>
           <img
             src={`${process.env.PUBLIC_URL}/static/images/menu/banner.png`}
             alt="Banner"
@@ -53,25 +53,35 @@ const MenuComponent = ({ isVisible, onClose }) => {
             <h5>Celebration - 20 anos</h5>
             <a>Conheça</a>
           </nav>
-        </figure>
+        </picture>
         <div className="menu__content">
           <h5>Liquida</h5>
           <ul className='categories-list'>
-            {['Sapatos', 'Sapatos', 'Sapatos'].map((category, index) => (
+            {[
+              {name:'Sapatos', image: '/static/images/categories/category-1.png'},
+              {name: 'Scarpins', image: '/static/images/categories/category-2.png'},
+              {name: 'Sapatilhas', image: '/static/images/categories/category-3.png'},
+              {name: 'Sandálias', image: '/static/images/categories/category-4.png'}
+            ].map((category, index) => (
               <li key={index} className='category'>
                 <h5 onClick={() => toggleCategory(index)}>
-                  {category}
+                  {category.name}
                   {activeCategory !== index && (<KeyboardArrowRight />)}
                   {activeCategory === index && (<KeyboardArrowDown />)}
                 </h5>
                 {activeCategory === index && (
-                  <ul className='products-list'>
-                    {['Scarpins', 'Scarpins', 'Scarpins', 'Scarpins'].map((product, idx) => (
-                      <li key={idx} className='product'>
-                        <a>{product}</a>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="category-content">
+                    <ul className='products-list'>
+                      {['Scarpins', 'Scarpins', 'Scarpins', 'Scarpins'].map((product, idx) => (
+                        <li key={idx} className='product'>
+                          <a>{product}</a>
+                        </li>
+                      ))}
+                    </ul>
+                    <picture className='image' style={{display: 'none'}}>
+                      <img src={category.image} alt={category.name} />
+                    </picture>
+                  </div>
                 )}
               </li>
             ))}
