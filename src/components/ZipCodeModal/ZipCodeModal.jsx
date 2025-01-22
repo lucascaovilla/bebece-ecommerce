@@ -6,7 +6,8 @@ import './ZipCodeModal.scss';
 import { Close } from '@mui/icons-material';
 import useUserLocation from '../../hooks/useUserLocation';
 
-const zipCodeRegex = /^[0-9]{0,5}(-[0-9]{0,3})?$/;
+const zipCodeRegex = /^[0-9]{0,5}(-?[0-9]{0,3})?$/;
+
 
 const states = [
   { value: '', label: 'Opcional' },
