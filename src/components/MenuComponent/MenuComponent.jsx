@@ -51,7 +51,7 @@ const MenuComponent = ({ isVisible, onClose }) => {
           />
           <nav>
             <h5>Celebration - 20 anos</h5>
-            <a>Conheça</a>
+            <a href="/">Conheça</a>
           </nav>
         </picture>
         <div className="menu__content">
@@ -74,12 +74,15 @@ const MenuComponent = ({ isVisible, onClose }) => {
                     <ul className='products-list'>
                       {['Scarpins', 'Scarpins', 'Scarpins', 'Scarpins'].map((product, idx) => (
                         <li key={idx} className='product'>
-                          <a>{product}</a>
+                          <a href="/">{product}</a>
                         </li>
                       ))}
                     </ul>
                     <picture className='image' style={{display: 'none'}}>
-                      <img src={category.image} alt={category.name} />
+                      <img
+                        src={category.image} alt={category.name}
+                        alt={category.image}
+                      />
                     </picture>
                   </div>
                 )}

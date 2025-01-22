@@ -35,10 +35,16 @@ const Home = () => {
       <CategoriesList />
       <div className="navigation-banners">
         <picture className="navigation-banner">
-          <img src={isMobile ? "/static/images/navigation-banners/mobile-navigation-banner-1.png" : "/static/images/navigation-banners/desktop-navigation-banner-1.png"} />
+          <img
+            src={isMobile ? "/static/images/navigation-banners/mobile-navigation-banner-1.png" : "/static/images/navigation-banners/desktop-navigation-banner-1.png"}
+            alt="Navigation Banner"  
+          />
         </picture>
         <picture className="navigation-banner">
-          <img src={isMobile ? "/static/images/navigation-banners/mobile-navigation-banner-2.png" : "/static/images/navigation-banners/desktop-navigation-banner-2.png"} />
+          <img
+            src={isMobile ? "/static/images/navigation-banners/mobile-navigation-banner-2.png" : "/static/images/navigation-banners/desktop-navigation-banner-2.png"}
+            alt="Navigation Banner"  
+          />
         </picture>
       </div>
       <ProductsList onOpenCart={onOpenCart} />

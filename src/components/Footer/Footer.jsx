@@ -9,27 +9,27 @@ const Footer = () => {
       </picture>
       <ul className="social-medias">
         <li className="social-media">
-          <a>
+          <a href="/">
             <img src="/static/images/social-medias/instagram.svg" alt="Instagram"></img>
           </a>
         </li>
         <li className="social-media">
-          <a>
+          <a href="/">
             <img src="/static/images/social-medias/facebook.svg" alt="Facebook"></img>
           </a>
         </li>
         <li className="social-media">
-          <a>
+          <a href="/">
             <img src="/static/images/social-medias/pinterest.svg" alt="Pinterest"></img>
           </a>
         </li>
         <li className="social-media">
-          <a>
+          <a href="/">
             <img src="/static/images/social-medias/twitter.svg" alt="Twitter"></img>
           </a>
         </li>
         <li className="social-media">
-          <a>
+          <a href="/">
             <img src="/static/images/social-medias/tik-tok.svg" alt="TikTok"></img>
           </a>
         </li>
@@ -38,12 +38,12 @@ const Footer = () => {
         <figcaption>Sobre a empresa</figcaption>
         <ul>
           <li>
-            <a>
+            <a href="/">
               Quem somos
             </a>
           </li>
           <li>
-            <a>
+            <a href="/">
               Fale conosco
             </a>
           </li>
@@ -53,22 +53,22 @@ const Footer = () => {
         <figcaption>Sobre a empresa</figcaption>
         <ul>
           <li>
-            <a>
+            <a href="/">
               Política de Privacidade
             </a>
           </li>
           <li>
-            <a>
+            <a href="/">
               Termos de Uso
             </a>
           </li>
           <li>
-            <a>
+            <a href="/">
               Política de Entrega
             </a>
           </li>
           <li>
-            <a>
+            <a href="/">
               Política de Cupom e Descontos
             </a>
           </li>

@@ -9,7 +9,7 @@ const BlogPost = ({ image, title, caption }) => {
       </picture>
       <h2>{title}</h2>
       <p>{caption}</p>
-      <a>Saiba mais!</a>
+      <a href="/">Saiba mais!</a>
     </div>
   );
 };
