@@ -5,6 +5,7 @@ import ProductsList from '../../components/ProductsList/ProductsList';
 import NewsletterModal from '../../components/NewsletterModal/NewsletterModal';
 import SliderComponent from '../../components/SliderComponent/SliderComponent';
 import CategoriesList from '../../components/CategoriesList/CategoriesList';
+import Blog from '../../components/Blog/Blog';
 
 const Home = ({ onOpenCart }) => {
   return (
@@ -22,6 +23,7 @@ const Home = ({ onOpenCart }) => {
         <img src="/static/images/navigation-banners/navigation-banner-big.png" />
       </figure>
       <ProductsList onOpenCart={onOpenCart} />
+      <Blog />
       <NewsletterModal />
     </section>
   );

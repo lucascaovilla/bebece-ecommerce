@@ -4,7 +4,7 @@ import './SliderComponent.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const SliderComponent = ({ children, slides = 1, autoplay = false, centerMode = false }) => {
+const SliderComponent = ({ children, slides = 1, autoplay = false, centerMode = false, darkDots = false }) => {
   var settings = {
     dots: true,
     infinite: true,
@@ -18,7 +18,7 @@ const SliderComponent = ({ children, slides = 1, autoplay = false, centerMode = 
   };
 
   return (
-    <Slider {...settings} className='slider-component'>
+    <Slider {...settings} className={`slider-component ${darkDots ? 'dark-dots' : ''}`} >
       {children}
     </Slider>
   );
