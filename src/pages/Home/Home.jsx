@@ -8,12 +8,27 @@ import CategoriesList from '../../components/CategoriesList/CategoriesList';
 import Blog from '../../components/Blog/Blog';
 
 const Home = ({ onOpenCart }) => {
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
   return (
     <section className="home">
       <SliderComponent autoplay={true} >
-        <Banner image="/static/images/banners/banner-1.png" />
-        <Banner image="/static/images/banners/banner-2.png" />
-        <Banner image="/static/images/banners/banner-3.png" />
+        <Banner
+          mobileImage="/static/images/banners/mobile-banner-1.png"
+          desktopImage="/static/images/banners/desktop-banner-1.png"
+          alt="Banner 1"
+        />
+        <Banner
+          mobileImage="/static/images/banners/mobile-banner-2.png"
+          desktopImage="/static/images/banners/desktop-banner-2.png"
+          alt="Banner 2"
+        />
+        {isMobile &&
+          <Banner
+            mobileImage="/static/images/banners/mobile-banner-3.png"
+            alt="Banner 3"
+          />
+        }
       </SliderComponent>
       <CategoriesList />
       <figure className="navigation-banner">
