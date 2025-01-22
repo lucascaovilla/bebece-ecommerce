@@ -1,3 +1,15 @@
+# Como rodar o projeto
+
+## Docker
+
+docker compose -f dev.docker-compose.yml up
+
+
+## Npm
+
+npm i && npm start
+
+
 # Instruções para Desenvolvimento
 
 Este projeto requer a recriação de uma página mobile e desktop baseada em um design fornecido no Figma. A pessoa responsável por este teste deve utilizar o arquivo fornecido no projeto para desenvolver a página conforme as especificações do design.
