@@ -29,7 +29,7 @@ const ProductsList = ({ onOpenCart }) => {
 
   return (
     <div className="products-list">
-      <SliderComponent slides={isMobile ? 1 : 2}  autoplay={true} topDots={true}>
+      <SliderComponent slides={isMobile ? 1 : 5}  autoplay={true} topDots={true}>
         {products.map((product) => (
           <ProductCard key={product.id} product={product} onOpenModal={(product) => onOpenModal(product)} />
         ))}
