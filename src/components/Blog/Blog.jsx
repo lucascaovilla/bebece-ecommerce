@@ -4,13 +4,15 @@ import SliderComponent from '../SliderComponent/SliderComponent';
 import BlogPost from '../BlogPost/BlogPost';
 
 const Blog = () => {
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
   return (
     <section className="blog">
       <div className="title">
         <h3>Conheça mais</h3>
         <h6>Fique por dentro de tudo que acontece na Bebecê</h6>
       </div>
-      <SliderComponent autoplay={true} darkDots={true} >
+      <SliderComponent autoplay={true} darkDots={true} slides={isMobile ? 1 : 3} >
         <BlogPost
           image="static/images/blog/blog-post-1.png"
           title="NOVO LOGO, MESMA ESSÊNCIA"
