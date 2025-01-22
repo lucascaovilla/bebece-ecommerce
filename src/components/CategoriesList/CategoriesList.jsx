@@ -10,7 +10,7 @@ const CategoriesList = () => {
     <section className="categories-list">
       <h3 className='title'>Categorias</h3>
       <div className="list">
-        <SliderComponent slides={isMobile ? 1 : 3} topDots={true} >
+        <SliderComponent slides={isMobile ? 1 : 4} topDots={true} >
           <CategoryCard
             image="/static/images/categories/category-1.png"
             title="Botas"
