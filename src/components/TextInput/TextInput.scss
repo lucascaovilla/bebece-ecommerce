@@ -10,4 +10,9 @@
       border: 1px solid #ccc;
     }
   }
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    min-width: 300px;
+  }
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ZipCodeStrip from '../ZipCodeStrip/ZipCodeStrip';
-import { Menu, Search, Person, ShoppingBag } from '@mui/icons-material';
+import { Menu, Search, Person, ShoppingBag, KeyboardArrowDownOutlined } from '@mui/icons-material';
 import './Header.scss';
 import MenuComponent from '../MenuComponent/MenuComponent';
 import useCart from '../../hooks/useCart';
@@ -31,7 +31,13 @@ const useScroll = () => {
 const Header = ({ onChangeLocation, onOpenCart }) => {
   const scrolled = useScroll();
   const [isMenuVisible, setMenuVisible] = useState(false);
+  const [activeSection, setActiveSection] = useState(null); 
   const { cartLength } = useCart();
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  useEffect(() => {
+    setMenuVisible(activeSection === 'products');
+  }, [activeSection]);
 
   const onOpenMenu = () => {
     setMenuVisible(true);
@@ -41,21 +47,46 @@ const Header = ({ onChangeLocation, onOpenCart }) => {
     setMenuVisible(false);
   };
 
+  const onSelectSection = (section) => {
+    setActiveSection(activeSection === section ? null : section);
+  };
+
   return (
     <>
-      <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+      <header className={`header ${scrolled || (!isMobile && isMenuVisible) ? 'scrolled' : ''}`}>
         <ZipCodeStrip onChangeLocation={onChangeLocation} />
         <section className="header__content">
-          <nav>
-            <Menu className="icon" onClick={onOpenMenu} />
-            <Search className="icon" />
-          </nav>
+          {isMobile &&
+            <nav>
+              <Menu className="icon" onClick={onOpenMenu} />
+              <Search className="icon" />
+            </nav>
+          }
           <img
             className="logo"
             src={`${process.env.PUBLIC_URL}/static/images/Logo.svg`}
             alt="Logo"
           />
+          {!isMobile &&
+            <nav className="menu-sections">
+              <p
+                className={activeSection === 'products' ? 'active' : ''}
+                onClick={() => onSelectSection('products')}
+              >
+                Produtos
+                <KeyboardArrowDownOutlined />
+              </p>
+              <p
+                className={activeSection === 'releases' ? 'active' : ''}
+                onClick={() => onSelectSection('releases')}
+              >Lançamentos</p>
+              <p className={`'red' ${activeSection === 'outlet' ? 'active' : ''}`}
+                onClick={() => onSelectSection('outlet')}
+              >Outlet</p>
+            </nav>
+          }
           <nav>
+            {!isMobile && <Search />}
             <Person className="icon" />
             <p>
               <ShoppingBag className="icon" onClick={onOpenCart} />

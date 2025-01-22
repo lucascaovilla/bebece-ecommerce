@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import ButtonComponent from '../ButtonComponent/ButtonComponent';
 import './FormComponent.scss';
 
-const FormComponent = ({ onSubmit, children, buttonLabel }) => {
+const FormComponent = ({ onSubmit, children, buttonLabel, flex = false }) => {
   const formRef = useRef();
   const [isValid, setIsValid] = useState(false);
 
@@ -22,7 +22,7 @@ const FormComponent = ({ onSubmit, children, buttonLabel }) => {
   };
 
   return (
-    <form ref={formRef} onInput={validateForm} onSubmit={handleSubmit}>
+    <form ref={formRef} onInput={validateForm} onSubmit={handleSubmit} className={flex ? 'flex' : ''}>
       {children}
       <ButtonComponent buttonType="submit" disabled={!isValid} onClick={handleSubmit}>{buttonLabel}</ButtonComponent>
     </form>

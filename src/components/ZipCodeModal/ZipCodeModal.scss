@@ -6,7 +6,7 @@
   right: 0;
   z-index: 1000;
   
-  padding: 4rem;
+  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,21 +27,31 @@
       right: 0;
     }
 
-    @media screen and (min-width: 375px) {
-      padding: 28px;
-    }
-    @media screen and (min-width: 425px) {
-      padding: 32px;
-    }
-    @media screen and (min-width: 768px) {
-      padding: 36px;
-    }
+    
     section {
       display: flex;
       gap: 4px;
       & > * {
         flex: 1;
       }
+    }
+  }
+
+  @media screen and (min-width: 375px) {
+    padding: 3rem;
+    .modal {
+      padding: 28px;
+    }
+  }
+  @media screen and (min-width: 425px) {
+    padding: 4rem;
+    .modal {
+      padding: 32px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .modal {
+      padding: 36px;
     }
   }
 }

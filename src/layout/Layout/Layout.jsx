@@ -53,7 +53,7 @@ const Layout = () => {
     <div>
       <Header onChangeLocation={() => setZipCodeModalVisible(true)} onOpenCart={onOpenCart} />
       <main>
-        <Outlet onOpenCart={() => setCartModalVisible(true)} />
+        <Outlet context={{onOpenCart}} />
       </main>
       <Footer />
       {isZipCodeModalVisible && <ZipCodeModal isVisible={isZipCodeModalVisible} onClose={onCloseZipCodeModal} />}

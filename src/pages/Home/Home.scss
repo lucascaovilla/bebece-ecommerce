@@ -1,9 +1,19 @@
 .home {
-  .navigation-banner {
-    width: 100%;
-
-    img {
+  .navigation-banners {
+    .navigation-banner {
       width: 100%;
+  
+      img {
+        width: 100%;
+      }
+    }
+
+    @media screen and (min-width: 769px) {
+      display: flex;
+      .navigation-banner {
+        width: unset;
+        object-fit: cover;
+      }
     }
   }
 }
