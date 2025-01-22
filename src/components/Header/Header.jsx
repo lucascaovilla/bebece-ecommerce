@@ -94,8 +94,8 @@ const Header = ({ onChangeLocation, onOpenCart }) => {
             </p>
           </nav>
         </section>
-      </header>
       <MenuComponent isVisible={isMenuVisible} onClose={onCloseMenu} />
+      </header>
     </>
   );
 };
