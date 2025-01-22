@@ -10,11 +10,17 @@ const Home = ({ onOpenCart }) => {
   return (
     <section className="home">
       <SliderComponent autoplay={true} >
-        <Banner image="/static/images/banner/banner-1.png" />
-        <Banner image="/static/images/banner/banner-2.png" />
-        <Banner image="/static/images/banner/banner-3.png" />
+        <Banner image="/static/images/banners/banner-1.png" />
+        <Banner image="/static/images/banners/banner-2.png" />
+        <Banner image="/static/images/banners/banner-3.png" />
       </SliderComponent>
       <CategoriesList />
+      <figure className="navigation-banner">
+        <img src="/static/images/navigation-banners/navigation-banner-small.png" />
+      </figure>
+      <figure className="navigation-banner">
+        <img src="/static/images/navigation-banners/navigation-banner-big.png" />
+      </figure>
       <ProductsList onOpenCart={onOpenCart} />
       <NewsletterModal />
     </section>
