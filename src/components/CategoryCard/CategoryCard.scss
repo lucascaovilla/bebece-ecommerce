@@ -1,11 +1,16 @@
 .category-card {
   width: 100%;
+  
+  & > * {
+    padding: 0 0.5rem;
+
+  }
 
   .image {
-    width: 220px;
+    border-radius: 7.5px;
+    overflow: hidden;
 
     img {
-      border-radius: 5px;
       width: 100%;
     }
   }

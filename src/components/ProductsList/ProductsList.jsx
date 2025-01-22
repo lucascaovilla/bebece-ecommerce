@@ -10,6 +10,7 @@ const ProductsList = ({ onOpenCart }) => {
   const [products, setProducts] = useState([]);
   const [isModalVisible, setModalVisible] = useState(false);
   const [openProduct, setOpenProduct] = useState(null);
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
   useEffect(() => {
     getProducts().then((fetchedProducts) => {
@@ -28,7 +29,7 @@ const ProductsList = ({ onOpenCart }) => {
 
   return (
     <div className="products-list">
-      <SliderComponent slides={2}  autoplay={true} topDots={true}>
+      <SliderComponent slides={isMobile ? 1 : 2}  autoplay={true} topDots={true}>
         {products.map((product) => (
           <ProductCard key={product.id} product={product} onOpenModal={(product) => onOpenModal(product)} />
         ))}

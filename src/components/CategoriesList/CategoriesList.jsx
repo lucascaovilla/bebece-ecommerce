@@ -4,11 +4,13 @@ import CategoryCard from '../CategoryCard/CategoryCard';
 import SliderComponent from '../SliderComponent/SliderComponent';
 
 const CategoriesList = () => {
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
   return (
     <section className="categories-list">
       <h3 className='title'>Categorias</h3>
       <div className="list">
-        <SliderComponent slides={3} topDots={true} >
+        <SliderComponent slides={isMobile ? 1 : 3} topDots={true} >
           <CategoryCard
             image="/static/images/categories/category-1.png"
             title="Botas"
