@@ -38,6 +38,7 @@
     }
   
     @media screen and (min-width: 768px) {
+<<<<<<< Updated upstream
       width: calc(100% - 8rem);
       padding: 0 4rem;
       gap: 2rem;
@@ -73,6 +74,13 @@
       }
 
 
+=======
+      width: calc(100% - 4rem);
+      padding: 2rem;
+      nav {
+        gap: 2rem;
+      }
+>>>>>>> Stashed changes
     }
   }
 

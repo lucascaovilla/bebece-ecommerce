@@ -12,9 +12,12 @@ const SliderComponent = ({ children, slides = 1, autoplay = false, centerMode = 
     slidesToShow: slides,
     slidesToScroll: 1,
     arrows: false,
+<<<<<<< Updated upstream
     autoplay: autoplay,
     focusOnSelect: true,
     centerMode: centerMode,
+=======
+>>>>>>> Stashed changes
   };
 
   return (
